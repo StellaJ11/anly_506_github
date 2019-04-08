@@ -9,11 +9,19 @@
 - Visualize the findings
 - Report the findings
 
-**Dataset that I will be using includes the following**
+**Dataset that I will be using in this project is a data files about bike vendors, which includes the following information**
 - Model
-- Category 1
-    - Category 2
-    - Frame Material
+- Category 1: Mountain or Road
+    - Category 2: 
+        - Trail
+        - Elite Road
+        - Sport 
+        - Fat Bike 
+        - Over Mountain 
+        - Cross Country Race 
+        - Triathalon 
+        - Endurance Road
+    - Frame Material: Aluminum or Carbon
     - Price
     - Vendor Information
     
