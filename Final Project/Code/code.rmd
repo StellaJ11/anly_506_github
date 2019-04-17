@@ -3,7 +3,8 @@
 ## Author: Yuanqing Jiang ##
 ## Date: April 16, 2019 ##
 ## Output: code.rmd ##
-#Loading new Libraries for my project
+##Github Link: https://github.com/StellaJ11/anly_506_github/tree/master/Final%20Project ##
+
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
