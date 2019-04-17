@@ -1,0 +1,70 @@
+# Title: ANLY_506_FinalProject #
+## Data File: bikeVedors##
+## Author: Yuanqing Jiang ##
+## Date: April 16, 2019 ##
+## Output: code.rmd ##
+#Loading new Libraries for my project
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+
+#Reading the Bikevendor data
+bikeVendors <- read.csv("bikeVendors.csv")
+attach(bikeVendors)
+
+#Check bikeVendors
+names(bikeVendors)
+
+#Check the top and bottom of bikeVendors
+head(bikeVendors)
+tail(bikeVendors)
+
+#Questions that I would like to answer from analyzing this Data
+##Maximum price for category1
+##Minimum Price for category1
+##Maximum price for category2
+##Minimum Price for category2
+
+#Check the summary and margin for Price 
+summary(price)
+##   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   415    1950    3200    3954    5330   12790 
+quantile(price, seq(0,1,0.1))
+##    0%   10%   20%   30%   40%   50%   60%   70%   80%   90%  100% 
+##   415  1060  1768  2130  2660  3200  3730  4560  5948  7990 12790 
+
+#Check the summary of unique counts for category1 and category2
+table(category1)
+##51 Mountain and 46 Road 
+table(category2)
+##Highest count is 21 for Elite Road and lowest count is 2 for Fat Bike
+
+#Check Mean values
+tapply(bikeVendors$price, bikeVendors$category1, mean)
+##Mountain Mean got highest value of 4255.294 and Road Mean value of 3619.457
+tapply(bikeVendors$price, bikeVendors$category2, mean)
+##Highest Mean is for Cross Country Race, value of 5696.3158 
+##Lowest Mean is for Sport, valuse of 881.1111 
+
+#Checking SD values
+tapply(bikeVendors$price, bikeVendors$category1, sd)
+##Mountain SD value 3042.408 and Road SD value of 2663.310
+tapply(bikeVendors$price, bikeVendors$category2, sd)
+##Highest SD value is for Elite Road of 3170.9898 
+##Lowest SD value is for Sport of 383.8276 
+
+#barplot for 2 different independent variables vs price variable
+ggplot(bikeVendors, aes(x = category1, y = price, color="blue")) + geom_boxplot() + coord_flip()
+ggplot(bikeVendors, aes(x = category2, y = price, color="blue")) + geom_boxplot() + coord_flip()
+
+#Answers to my questions 
+##Maximum price for category1
+###4255.294 for Mountain 
+##Minimum Price for category1
+###3619.457 for Road 
+##Maximum price for category2
+###5696.3158 for Cross Country Race 
+##Minimum Price for category2
+###881.1111 for Sports 
+
+
