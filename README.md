@@ -12,7 +12,7 @@
 **Dataset that I will be using in this project is a data files about bike vendors, which includes the following information**
 - Model
 - Category 1: Mountain or Road
-    - Category 2: 
+- Category 2: 
         - Trail
         - Elite Road
         - Sport 
@@ -21,8 +21,8 @@
         - Cross Country Race 
         - Triathalon 
         - Endurance Road
-    - Frame Material: Aluminum or Carbon
-    - Price
-    - Vendor Information
+ - Frame Material: Aluminum or Carbon
+ - Price
+ - Vendor Information
     
     
