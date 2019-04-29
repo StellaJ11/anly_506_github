@@ -1,11 +1,15 @@
 
 
-#5 key functions:
+#Several Key Functions:
 #Filter observations by their values (filter()).
 #Arrange the rows (arrange()).
 #Select variables by their names (select()).
 #Create new variables with functions of existing variables (mutate()).
 #Summarise values (summarise()).
+#Distinct function
+#Rank Function
+#Bind function
+
 
 #An example for filter()
 filter(flights, month == 1, day == 1)
@@ -33,8 +37,18 @@ filter(df, x > 1)
 
 filter(df, is.na(x) | x > 1)
 
+#Distinct Function
+d1 <- distinct(flights, dep_time)  # remove dupicated values rows from data set 
 
+#Rank the data
+q1 <- quantile(faithful$eruptions, 0.25)  # nth quantile
+round(q1,2) # roundup data
+min()  # minimum value 
+max()  # maximum value
 
+#Bind Function
+c_all <- bind_cols(c1, c2, c3, c4)  # bind four data sets by columns
+r_all <- bind_rows(r1, r2, r3, r4)  # bind four data sets by rows
 
 
 
