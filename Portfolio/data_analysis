@@ -1,1 +1,17 @@
+## Chi-sq test
+  results <- chisq.test(table(data[[FILL]], data[[X]])) 
+  resid <- melt(results$residuals)
+  names(resid) <- c("FILL", "X", "residual")
+  
+## Merge data
+  DF_all <- merge(DF_melted, resid)
 
+## Clustering
+
+library(tidyverse)
+library(cluster)    # Clustering algorithms
+library(factoextra) # Clustering algorithms + visualization
+
+fviz_dist(get_dist(mydata), gradient = list(low = "red", mid = "blue", high = "white"))  # Visualisation of a distance matrix
+fviz_nbclust(mydata, kmeans, method = "wss") # Elbow method: To calculate the total within-cluster sum of square (wss)
+fviz_nbclust(mydata, kmeans, method = "silhouette") # Silhouette method: To calculate the average silhouette of observations for different values of k
