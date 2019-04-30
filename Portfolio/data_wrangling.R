@@ -1,14 +1,14 @@
 
 
 #Several Key Functions:
-#Filter observations by their values (filter()).
-#Arrange the rows (arrange()).
-#Select variables by their names (select()).
-#Create new variables with functions of existing variables (mutate()).
-#Summarise values (summarise()).
-#Distinct function
-#Rank Function
-#Bind function
+#Filter observations (filter())
+#Arrange the rows (arrange())
+#Select variables (select())
+#Create new variables (mutate())
+#Summarise values (summarise())
+#Distinct function (distinct ())
+#Rank variables
+#Bind variables 
 
 
 #An example for filter()
