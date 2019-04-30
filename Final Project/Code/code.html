@@ -206,10 +206,14 @@ $(document).ready(function () {
 <div id="output-code.rmd" class="section level2">
 <h2>Output: code.rmd</h2>
 </div>
-</div>
-<div id="loading-new-libraries-for-my-project" class="section level1">
-<h1>Loading new Libraries for my project</h1>
+<div id="github-link-httpsgithub.comstellaj11anly_506_githubtreemasterfinal20project" class="section level2">
+<h2>Github Link: <a href="https://github.com/StellaJ11/anly_506_github/tree/master/Final%20Project">https://github.com/StellaJ11/anly_506_github/tree/master/Final%20Project</a></h2>
 <p>library(tidyverse) library(dplyr) library(ggplot2)</p>
+</div>
+</div>
+<div id="bike-vendors-project-executive-summary" class="section level1">
+<h1>Bike Vendors Project Executive Summary</h1>
+<p>The Bike Vendor dataset contains 97 observations and 35 variables. It provides 4 types of information: the bike usage, frame materials, price, and distribution of all models going by each vendor. The objective of this project is to analyze the data to gain insights into (1) price variation between 97 models, and (2) models distribution across 30 vendors.</p>
 </div>
 <div id="reading-the-bikevendor-data" class="section level1">
 <h1>Reading the Bikevendor data</h1>
@@ -223,19 +227,58 @@ $(document).ready(function () {
 <h1>Check the top and bottom of bikeVendors</h1>
 <p>head(bikeVendors) tail(bikeVendors)</p>
 </div>
-<div id="questions-that-i-would-like-to-answer-from-analyzing-this-data" class="section level1">
-<h1>Questions that I would like to answer from analyzing this Data</h1>
+<div id="questions-that-i-would-like-to-answer-from-analyzing-the-dataset" class="section level1">
+<h1>Questions that I would like to answer from analyzing the dataset</h1>
+<div id="the-relationship-between-price-and-frames-and-different-categories-price-versus-frame-category-1-and-category-2" class="section level2">
+<h2>1. The relationship between price and frames and different categories (price versus frame, category 1 and category 2)</h2>
+</div>
+<div id="maximum-minimum-prices-for-category1" class="section level2">
+<h2>2. Maximum &amp; Minimum Prices for category1</h2>
+</div>
+<div id="maximum-minimum-prices-for-category2" class="section level2">
+<h2>3. Maximum &amp; Minimum Prices for category2</h2>
+</div>
+<div id="answer-to-question-1" class="section level2">
+<h2>Answer to Question 1</h2>
+<p>g1&lt;- ggplot(bikevendors, aes(x=price)) g1+ geom_histogram(aes(fill=price)) + ggtitle(“Figure 1: Price distribution”) + xlab(“Price”) + ylab(“Frequency”) + theme_bw() ##Figure 1 shows that prices of most of the bikes are in the range of $2,000 - $3,000.</p>
+<p>g2&lt;- ggplot(bikevendors, aes(x=frame, y= price, fill=frame)) g2 + geom_boxplot(aes(fill=price)) + ggtitle(“Figure 2: Price versus Bike Frame”)+ theme_bw() ##Figure 2 shows that bikes with carbon frames are generally more expensive than aluminum ones.</p>
+</div>
+</div>
+<div id="barplot-for-category1-category2-vs-price" class="section level1">
+<h1>barplot for category1 &amp; category2 vs price</h1>
+<p>ggplot(bikeVendors, aes(x = category1, y = price, color=“blue”)) + geom_boxplot() + coord_flip() ggplot(bikeVendors, aes(x = category2, y = price, color=“blue”)) + geom_boxplot() + coord_flip()</p>
+<div id="figure-3-shows-that-the-average-price-of-mountain-bikes-is-slighly-more-expensive-than-the-one-of-road-bikes." class="section level2">
+<h2>Figure 3 shows that the average price of Mountain Bikes is slighly more expensive than the one of Road Bikes.</h2>
+</div>
+<div id="figure-4-shows-that-among-all-bikes-within-category-2-cross-country-road-bikes-have-the-highest-average-price." class="section level2">
+<h2>Figure 4 shows that among all bikes within Category 2, Cross Country Road bikes have the highest average price.</h2>
+</div>
+</div>
+<div id="answers-to-question-2-3" class="section level1">
+<h1>Answers to Question 2 &amp; 3</h1>
 <div id="maximum-price-for-category1" class="section level2">
 <h2>Maximum price for category1</h2>
+<div id="for-mountain" class="section level3">
+<h3>4255.294 for Mountain</h3>
+</div>
 </div>
 <div id="minimum-price-for-category1" class="section level2">
 <h2>Minimum Price for category1</h2>
+<div id="for-road" class="section level3">
+<h3>3619.457 for Road</h3>
+</div>
 </div>
 <div id="maximum-price-for-category2" class="section level2">
 <h2>Maximum price for category2</h2>
+<div id="for-cross-country-race" class="section level3">
+<h3>5696.3158 for Cross Country Race</h3>
+</div>
 </div>
 <div id="minimum-price-for-category2" class="section level2">
 <h2>Minimum Price for category2</h2>
+<div id="for-sport" class="section level3">
+<h3>881.1111 for Sport</h3>
+</div>
 </div>
 </div>
 <div id="check-the-summary-of-unique-counts-for-category1-and-category2" class="section level1">
@@ -249,37 +292,6 @@ $(document).ready(function () {
 <div id="check-mean-values" class="section level1">
 <h1>Check Mean values</h1>
 <p>tapply(bikeVendors<span class="math inline">\(price, bikeVendors\)</span>category1, mean) ##Mountain got the highest mean of 4255.294 ##Road got the lowest one of 3619.457 tapply(bikeVendors<span class="math inline">\(price, bikeVendors\)</span>category2, mean) ##Cross Country Race got the highest mean of 5696.3158 ##Sport got the lowest one of 881.1111</p>
-</div>
-<div id="barplot-for-category1-category2-vs-price" class="section level1">
-<h1>barplot for category1 &amp; category2 vs price</h1>
-<p>ggplot(bikeVendors, aes(x = category1, y = price, color=“blue”)) + geom_boxplot() + coord_flip() ggplot(bikeVendors, aes(x = category2, y = price, color=“blue”)) + geom_boxplot() + coord_flip()</p>
-</div>
-<div id="answers-to-my-questions" class="section level1">
-<h1>Answers to my questions</h1>
-<div id="maximum-price-for-category1-1" class="section level2">
-<h2>Maximum price for category1</h2>
-<div id="for-mountain" class="section level3">
-<h3>4255.294 for Mountain</h3>
-</div>
-</div>
-<div id="minimum-price-for-category1-1" class="section level2">
-<h2>Minimum Price for category1</h2>
-<div id="for-road" class="section level3">
-<h3>3619.457 for Road</h3>
-</div>
-</div>
-<div id="maximum-price-for-category2-1" class="section level2">
-<h2>Maximum price for category2</h2>
-<div id="for-cross-country-race" class="section level3">
-<h3>5696.3158 for Cross Country Race</h3>
-</div>
-</div>
-<div id="minimum-price-for-category2-1" class="section level2">
-<h2>Minimum Price for category2</h2>
-<div id="for-sport" class="section level3">
-<h3>881.1111 for Sport</h3>
-</div>
-</div>
 </div>
 
 

@@ -9,6 +9,9 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
+#Bike Vendors Project Executive Summary
+The Bike Vendor dataset contains 97 observations and 35 variables. It provides 4 types of information: the bike usage, frame materials, price, and distribution of all models going by each vendor. The objective of this project is to analyze the data to gain insights into (1) price variation between 97 models, and (2) models distribution across 30 vendors. 
+
 #Reading the Bikevendor data
 bikeVendors <- read.csv("bikeVendors.csv")
 attach(bikeVendors)
@@ -20,11 +23,43 @@ names(bikeVendors)
 head(bikeVendors)
 tail(bikeVendors)
 
-#Questions that I would like to answer from analyzing this Data
+#Questions that I would like to answer from analyzing the dataset
+##1. The relationship between price and frames and different categories (price versus frame, category 1 and category 2)
+##2. Maximum & Minimum Prices for category1
+##3. Maximum & Minimum Prices for category2
+
+##Answer to Question 1
+
+g1<- ggplot(bikevendors, aes(x=price))
+g1+ geom_histogram(aes(fill=price)) + ggtitle("Figure 1: Price distribution") +
+  xlab("Price") + ylab("Frequency") +
+  theme_bw()
+##Figure 1 shows that prices of most of the bikes are in the range of $2,000 - $3,000. 
+
+g2<- ggplot(bikevendors, aes(x=frame, y= price, fill=frame))
+g2 + geom_boxplot(aes(fill=price)) +
+  ggtitle("Figure 2: Price versus Bike Frame")+
+  theme_bw()
+##Figure 2 shows that bikes with carbon frames are generally more expensive than aluminum ones. 
+
+
+#barplot for category1 & category2 vs price 
+ggplot(bikeVendors, aes(x = category1, y = price, color="blue")) + geom_boxplot() + coord_flip()
+ggplot(bikeVendors, aes(x = category2, y = price, color="blue")) + geom_boxplot() + coord_flip()
+
+##Figure 3 shows that the average price of Mountain Bikes is slighly more expensive than the one of Road Bikes. 
+
+##Figure 4 shows that among all bikes within Category 2, Cross Country Road bikes have the highest average price.
+
+#Answers to Question 2 & 3
 ##Maximum price for category1
+###4255.294 for Mountain 
 ##Minimum Price for category1
+###3619.457 for Road 
 ##Maximum price for category2
+###5696.3158 for Cross Country Race 
 ##Minimum Price for category2
+###881.1111 for Sport 
 
 #Check the summary of unique counts for category1 and category2
 table(category1)
@@ -47,19 +82,5 @@ tapply(bikeVendors$price, bikeVendors$category1, mean)
 tapply(bikeVendors$price, bikeVendors$category2, mean)
 ##Cross Country Race got the highest mean of 5696.3158 
 ##Sport got the lowest one of 881.1111 
-
-#barplot for category1 & category2 vs price 
-ggplot(bikeVendors, aes(x = category1, y = price, color="blue")) + geom_boxplot() + coord_flip()
-ggplot(bikeVendors, aes(x = category2, y = price, color="blue")) + geom_boxplot() + coord_flip()
-
-#Answers to my questions 
-##Maximum price for category1
-###4255.294 for Mountain 
-##Minimum Price for category1
-###3619.457 for Road 
-##Maximum price for category2
-###5696.3158 for Cross Country Race 
-##Minimum Price for category2
-###881.1111 for Sport 
 
 
